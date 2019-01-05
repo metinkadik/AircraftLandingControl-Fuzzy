@@ -1,0 +1,63 @@
+[System]
+Name='Mamdani'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=20
+AndMethod='min'
+OrMethod='max'
+ImpMethod='prod'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='İrtifa'
+Range=[0 1000]
+NumMFs=4
+MF1='Sıfıra-Yakın':'trimf',[0 0 500]
+MF2='Az':'trimf',[0 300 800]
+MF3='Çok':'trimf',[500 1000 1000]
+MF4='Orta':'trimf',[300 800 1000]
+
+[Input2]
+Name='Hız'
+Range=[-30 30]
+NumMFs=5
+MF1='NÇ':'trapmf',[-30 -30 -20 -10]
+MF2='NA':'trimf',[-20 -10 0]
+MF3='SF':'trimf',[-10 0 10]
+MF4='PA':'trimf',[0 10 20]
+MF5='PÇ':'trapmf',[10 20 30 30]
+
+[Output1]
+Name='Kontrol-Kuvveti'
+Range=[-30 30]
+NumMFs=5
+MF1='SF':'trimf',[-10 0 10]
+MF2='NÇ':'trapmf',[-30 -30 -20 -10]
+MF3='PÇ':'trapmf',[10 20 30 30]
+MF4='NA':'trimf',[-20 -10 0]
+MF5='PA':'trimf',[0 10 20]
+
+[Rules]
+1 1, 3 (1) : 1
+1 2, 3 (1) : 1
+1 3, 1 (1) : 1
+1 4, 4 (1) : 1
+1 5, 4 (1) : 1
+2 1, 3 (1) : 1
+2 2, 5 (1) : 1
+2 3, 1 (1) : 1
+2 4, 4 (1) : 1
+2 5, 2 (1) : 1
+4 1, 5 (1) : 1
+4 2, 1 (1) : 1
+4 3, 4 (1) : 1
+4 4, 2 (1) : 1
+4 5, 2 (1) : 1
+3 1, 1 (1) : 1
+3 2, 4 (1) : 1
+3 3, 2 (1) : 1
+3 4, 2 (1) : 1
+3 5, 2 (1) : 1
