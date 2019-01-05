@@ -5,8 +5,8 @@ Aircraft landing control with fuzzy logic.
 Mamdani and Sugeno are implemented one by one.
 
 
-![surf](images\surface.png)
+image::images\surface.png[surface]
 
-----
+---
 
-![rules](images\rules.png)
+image::images\rules.png[rules]
